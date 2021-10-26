@@ -1,0 +1,37 @@
+pandas.read_excel()
+        作用：将Excel读取到pandas中
+
+        参数：
+        io :文件类对象，比如excel文件等
+        sheet_name: 指定加载的表，支持类型有str int list none
+                默认值是0代表第一张表，str是表名  例如"第一个"
+                int表示索引  从0开始
+                NOne 返回所有表作为数据文件
+        header: 指定表头行号  支持类型  int list default 0 
+                0 是起始索引的行号
+        usecols: 有选择地读取某些列  
+                选取列名的技巧  其实就是将集合转化为列表  ('a','s','d').split()
+
+        获取数据表的行、列数利用shape方法  以元组的形式返回行、列数
+
+        获取数据类型使用info()方法
+
+        利用describe()获取数值分布情况
+
+
+数据预处理
+        数据缺失查找
+               还可以用isnull()方法来判断哪个值是缺失值，如果是缺失值则返回True，如果不是缺失值则返回False
+        数据缺失删除
+               利用的是 dropna()方法，dropna()方法默认删除含有缺失值NaN的行，返回删除后的数据。
+               dropna(how = all)   删除全为空值的行，不全为空值的行就不会被删除
+        数据缺失填充
+               利用的fillna()方法对数据表中的所有缺失值进行填充，在fillna后面的括号中输入要填充的值即可。
+               fillna({列名：内容，列名：内容。。。。})  可以多行进行数据填充
+        数据重复处理
+                利用drop_duplicates()方法   参数都可以是列表，指定多组  
+                drop_duplicates(subset="列名",keep="first(第一个重复值)/last(最后一个重复值)")
+        数据异常检测
+
+        数据类型转换
+                利用astype()方法对数据类型进行转换。df['列名'].astype('数据类型')
